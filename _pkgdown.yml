@@ -1,0 +1,32 @@
+url: https://r-tmap.github.io/tmap.networks/
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#5f8640"
+
+# figures:
+  dev: ragg::agg_png
+  dpi: 300
+
+development:
+  version_tooltip: "tmap.networks documentation"
+
+reference:
+
+- title: tmap.networks
+  contents:
+  - tmap.networks-package
+- title: Layer functions
+  contents:
+  - tm_nodes
+  - tm_edges
+  - tm_network
+
+navbar:
+  structure:
+    left:  [reference, intro, news]
+  components:
+    home: ~
+    intro:
+      text: Introduction
+      href: articles/intro

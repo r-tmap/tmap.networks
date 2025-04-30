@@ -13,7 +13,9 @@ tmapGetShapeMeta1.sfnetwork = function(shp, o) {
 	# for sfnetwork: working, but with (unnesseary?) processing 
 	# are there direct methods to retrieve node and edge variable names?
 	
-	nodes = sf::st_as_sf(shp, "nodes")
+	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
+	
+	nodes = sf::st_as_sf(shp, "nodes")	
 	edges = sf::st_as_sf(shp, "edges")	
 	# 
 	# vars_nodes = setdiff(names(nodes), attr(nodes, "sf_column"))
@@ -64,6 +66,7 @@ tmapGetShapeMeta2.sfnetwork = function(shp, smeta, o) {
 	
 	# sfnetwork: are there direct methods to retrieve factor levels?
 	
+	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
 	
 	nodes = sf::st_as_sf(shp, "nodes")
 	edges = sf::st_as_sf(shp, "edges")	
@@ -117,6 +120,8 @@ tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, shp_name, 
 		shp = sf::st_transform(shp, crs = crs)
 	}
 	
+	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
+	
 	nodes = sf::st_as_sf(shp, "nodes")
 	edges = sf::st_as_sf(shp, "edges")
 	
@@ -155,9 +160,8 @@ tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, shp_name, 
 	dt[, ':='(tmapID__ = 1L:nrow(dt), sel__ = filter)]
 	
 	tmap::make_by_vars(dt, tmf, smeta)
-	
+
 	shpTM = shapeTM(shp = sfc, tmapID = 1L:(length(sfc)), bbox = bbox)
-	
 	structure(list(shpTM = shpTM, dt = dt, is.main = is.main, dtcols = dtcols, shpclass = "sfc", bbox = bbox, unit = unit, shp_name = shp_name, smeta = smeta), class = "tmapShape")
 }
 
