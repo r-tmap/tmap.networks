@@ -13,14 +13,6 @@ tmapGetShapeMeta1.sfnetwork = function(shp, o) {
 	# for sfnetwork: working, but with (unnesseary?) processing 
 	# are there direct methods to retrieve node and edge variable names?
 	
-	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
-	
-	nodes = sf::st_as_sf(shp, "nodes")	
-	edges = sf::st_as_sf(shp, "edges")	
-	# 
-	# vars_nodes = setdiff(names(nodes), attr(nodes, "sf_column"))
-	# vars_edges = setdiff(names(edges), attr(edges, "sf_column"))
-	# 
 	vars_nodes = get_names(shp, "nodes")
 	vars_edges = get_names(shp, "edges")
 	
@@ -65,9 +57,7 @@ tmapGetShapeMeta2.sfnetwork = function(shp, smeta, o) {
 	# get the levels of factor variables (in advance needed for faceting) and store them in smeta$vars_lev (smeta stands for 'shape meta')
 	
 	# sfnetwork: are there direct methods to retrieve factor levels?
-	
-	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
-	
+
 	nodes = sf::st_as_sf(shp, "nodes")
 	edges = sf::st_as_sf(shp, "edges")	
 	
