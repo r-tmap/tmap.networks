@@ -13,8 +13,11 @@ tmapGetShapeMeta1.sfnetwork = function(shp, o) {
 	# for sfnetwork: working, but with (unnesseary?) processing 
 	# are there direct methods to retrieve node and edge variable names?
 	
-	vars_nodes = get_names(shp, "nodes")
-	vars_edges = get_names(shp, "edges")
+	nodes = igraph::vertex_attr(shp)
+	edges = igraph::edge_attr(shp)
+	
+	vars_nodes = setdiff(names(nodes), attr(nodes, "sf_column"))
+	vars_edges = setdiff(names(edges), attr(edges, "sf_column"))
 	
 	
 	vars = unique(c(vars_nodes, vars_edges))
@@ -35,6 +38,7 @@ tmapGetShapeMeta1.sfnetwork = function(shp, o) {
 #' 
 #' @method tmapSubsetShp sfnetwork
 #' @import tmap
+#' @import sf
 #' @keywords internal
 #' @export
 tmapSubsetShp.sfnetwork = function(shp, vars) {
@@ -58,8 +62,8 @@ tmapGetShapeMeta2.sfnetwork = function(shp, smeta, o) {
 	
 	# sfnetwork: are there direct methods to retrieve factor levels?
 
-	nodes = sf::st_as_sf(shp, "nodes")
-	edges = sf::st_as_sf(shp, "edges")	
+	nodes = igraph::vertex_attr(shp)
+	edges = igraph::edge_attr(shp)
 	
 	vars_nodes = setdiff(names(nodes), attr(nodes, "sf_column"))
 	vars_edges = setdiff(names(edges), attr(edges, "sf_column"))

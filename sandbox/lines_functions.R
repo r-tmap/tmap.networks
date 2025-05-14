@@ -3,8 +3,8 @@ lines_straight = function (x, y)
 	df = rbind(sfheaders::sfc_to_df(x), sfheaders::sfc_to_df(y))
 	df = df[order(df$point_id), ]
 	lines = sfheaders::sfc_linestring(df, x = "x", y = "y", linestring_id = "point_id")
-	st_crs(lines) = st_crs(x)
-	st_precision(lines) = st_precision(x)
+	sf::st_crs(lines) = sf::st_crs(x)
+	sf::st_precision(lines) = sf::st_precision(x)
 	lines
 }
 

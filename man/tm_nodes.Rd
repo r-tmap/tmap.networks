@@ -123,9 +123,6 @@ Map layer that draws the nodes of a (sf)network.
 library(tmap)
 library(sfnetworks)
 
-load_all("../tmap")
-load_all()
-
 sfn = as_sfnetwork(roxel)
 
 tm_shape(sfn) +

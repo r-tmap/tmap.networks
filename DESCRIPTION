@@ -1,6 +1,6 @@
 Package: tmap.networks
 License: GPL-3
-Title: Visualization of networks from 'sfnetworks' using 'tmap'
+Title: Extension to 'tmap' for Creating Network Visualizations
 Type: Package
 LazyData: true
 Authors@R: c(
@@ -12,18 +12,17 @@ Authors@R: c(
              comment = c(ORCID = "0000-0002-9424-7439")),
 	person("Robin", "Lovelace", email = "rob00x@gmail.com", role = "ctb")
 	)
-Description: Extension package for tmap, which adds support for sfnetworks and several network specific layer functions.
+Description: Provides functions for visualizing networks with 'tmap'. It supports 'sfnetworks' objects natively but is not limited to them. Useful for adding network layers such as edges and nodes to tmap maps. More features may be added in future versions.
 Version: 0.1
-Date: 2025-04-30
 Encoding: UTF-8
 Depends:
     R (>= 4.0),
 Imports:
-    tmap (>= 4.0),
+    tmap (>= 4.1),
+    sf,
     sfnetworks,
     data.table,
-    igraph,
-    tidygraph
+    igraph
 Suggests:
     knitr
 Config/Needs/website: bookdown, rmarkdown, r-tmap/tmap
