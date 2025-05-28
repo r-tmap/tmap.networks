@@ -6,6 +6,9 @@
 \usage{
 \method{tmapGetShapeMeta1}{sfnetwork}(shp, o)
 }
+\value{
+list used by tmap internally
+}
 \description{
 Implementation of tmapGetShapeMeta1 for sfnetwork
 }

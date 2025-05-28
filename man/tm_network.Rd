@@ -6,6 +6,9 @@
 \usage{
 tm_network()
 }
+\value{
+a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
+}
 \description{
 Map layer that draws a network. For more (total) flexibility, please use \code{\link{tm_edges}} and \code{\link{tm_nodes}}.
 }

@@ -6,6 +6,9 @@
 \usage{
 \method{tmapShape}{sfnetwork}(shp, is.main, crs, bbox, unit, filter, shp_name, smeta, o, tmf)
 }
+\value{
+list used by tmap internally
+}
 \description{
 Implementation of tmapShape for sfnetwork
 }

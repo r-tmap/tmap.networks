@@ -79,6 +79,9 @@ features. Only used for `"view"` mode.}
 
 \item{lines.only}{should only line geometries of the shape object (defined in [tmap::tm_shape()]) be plotted, or also other geometry types (like polygons)? By default `"ifany"`, which means `TRUE` in case a geometry collection is specified.}
 }
+\value{
+a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
+}
 \description{
 Map layer that draws the edges of a (sf)network.
 }

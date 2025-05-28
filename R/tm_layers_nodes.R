@@ -12,6 +12,7 @@
 #' @param col_alpha,col_alpha.scale,col_alpha.legend,col_alpha.free Visual variable that determines the border color alpha transparency. See details.
 #' @inheritParams tm_edges
 #' @export
+#' @return a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
 #' @example ./examples/tm_network.R
 tm_nodes = function(size = tm_const(),
 					size.scale = tm_scale(),

@@ -6,6 +6,9 @@
 \usage{
 \method{tmapGetShapeMeta2}{sfnetwork}(shp, smeta, o)
 }
+\value{
+list used by tmap internally
+}
 \description{
 Implementation of tmapGetShapeMeta2 for sfnetwork
 }

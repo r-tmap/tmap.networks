@@ -12,7 +12,7 @@ Authors@R: c(
              comment = c(ORCID = "0000-0002-9424-7439")),
 	person("Robin", "Lovelace", email = "rob00x@gmail.com", role = "ctb")
 	)
-Description: Provides functions for visualizing networks with 'tmap'. It supports 'sfnetworks' objects natively but is not limited to them. Useful for adding network layers such as edges and nodes to tmap maps. More features may be added in future versions.
+Description: Provides functions for visualizing networks with 'tmap'. It supports 'sfnetworks' objects natively but is not limited to them. Useful for adding network layers such as edges and nodes to 'tmap' maps. More features may be added in future versions.
 Version: 0.1
 Encoding: UTF-8
 Depends:

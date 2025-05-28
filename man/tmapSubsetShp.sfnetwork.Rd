@@ -6,6 +6,9 @@
 \usage{
 \method{tmapSubsetShp}{sfnetwork}(shp, vars)
 }
+\value{
+list used by tmap internally
+}
 \description{
 Implementation of tmapSubsetShp for sfnetwork
 }

@@ -4,6 +4,7 @@
 #' 
 #' @method tmapGetShapeMeta1 sfnetwork
 #' @import tmap
+#' @return list used by tmap internally
 #' @keywords internal
 #' @export
 tmapGetShapeMeta1.sfnetwork = function(shp, o) {
@@ -40,6 +41,7 @@ tmapGetShapeMeta1.sfnetwork = function(shp, o) {
 #' @import tmap
 #' @import sf
 #' @keywords internal
+#' @return list used by tmap internally
 #' @export
 tmapSubsetShp.sfnetwork = function(shp, vars) {
 	# subset the original object by the variables that are used to create the tmap plot? Why: to reduce the object size/computation time of the next methods
@@ -55,6 +57,7 @@ tmapSubsetShp.sfnetwork = function(shp, vars) {
 #' @method tmapGetShapeMeta2 sfnetwork
 #' @import tmap
 #' @keywords internal
+#' @return list used by tmap internally
 #' @export
 tmapGetShapeMeta2.sfnetwork = function(shp, smeta, o) {
 
@@ -90,6 +93,7 @@ tmapGetShapeMeta2.sfnetwork = function(shp, smeta, o) {
 #' @import tmap
 #' @import data.table
 #' @keywords internal
+#' @return list used by tmap internally
 #' @export
 tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, shp_name, smeta, o, tmf) {
 	tmapID__ = NULL
