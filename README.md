@@ -20,10 +20,10 @@ features network specific layer functions
 
 ## Installation
 
-Installation of **tmap.glpyhs** is straightforward:
+Installation of **tmap.networks** is straightforward:
 
 ``` r
-install.packages("tmap.glyphs")
+install.packages("tmap.networks")
 ```
 
 ## Development version

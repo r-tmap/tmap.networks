@@ -50,10 +50,10 @@ knitr::knit_hooks$set(output = function(x, options) {
 
 ## Installation
 
-Installation of **tmap.glpyhs** is straightforward:
+Installation of **tmap.networks** is straightforward:
 
 ```{r eval=FALSE}
-install.packages("tmap.glyphs")
+install.packages("tmap.networks")
 ```
 
 ## Development version
