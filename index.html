@@ -52,28 +52,19 @@
 <img src="logo.png" class="logo" alt=""><h1 id="tmapnetworks-network-layers-in-tmap-">tmap.networks: network layers in tmap <a class="anchor" aria-label="anchor" href="#tmapnetworks-network-layers-in-tmap-"></a>
 </h1>
 </div>
+<!-- badges: start -->
+
 <p><a href="https://r-tmap.github.io/tmap/" class="external-link">tmap</a> is a R package for visualizing spatial data. This package is an extension. It features native support for <code>sfnetwork</code> objects (from the package <a href="https://luukvdmeer.github.io/sfnetworks/index.html" class="external-link">sfnetworks</a>), and features network specific layer functions</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>This package is in development so the development version of both <strong>tmap</strong> and <strong>tmap.networks</strong> are required.</p>
-<div class="section level3">
-<h3 id="tmap">tmap<a class="anchor" aria-label="anchor" href="#tmap"></a>
-</h3>
+<p>Installation of <strong>tmap.glpyhs</strong> is straightforward:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-tmap/tmap"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># install.packages("pak")</span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"r-tmap/tmap"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Or from r-universe</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tmap"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://r-tmap.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>For Linux and macOS users who are new to working with spatial data in R, this may fail since additional (non-R) libraries are required (which are automatically installed for Windows users).</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tmap.glyphs"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="tmapnetworks">tmap.networks<a class="anchor" aria-label="anchor" href="#tmapnetworks"></a>
-</h3>
+<div class="section level2">
+<h2 id="development-version">Development version<a class="anchor" aria-label="anchor" href="#development-version"></a>
+</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-tmap/tmap.networks"</span><span class="op">)</span></span>
@@ -83,12 +74,13 @@
 <span></span>
 <span><span class="co"># Or from r-universe</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tmap.networks"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://r-tmap.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
+<p>For the development version, it is also recommended to install the development version of <a href="https://r-tmap.github.io/tmap/" class="external-link">tmap</a> as well.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=tmap.networks" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/r-tmap/tmap.networks/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/r-tmap/tmap.networks/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -118,7 +110,17 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/r-tmap/tmap/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/r-tmap/tmap.networks/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://cran.r-project.org/package=tmap.networks" class="external-link"><img src="https://www.r-pkg.org/badges/version/tmap.networks" alt="CRAN"></a></li>
+<li><a href="https://cran.r-project.org/web/checks/check_results_tmap.networks.html" class="external-link"><img src="https://cranchecks.info/badges/worst/tmap.networks" alt="CRAN checks"></a></li>
+<li><a href="https://www.r-pkg.org:443/pkg/tmap.networks" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/tmap.networks?color=brightgreen" alt="Downloads"></a></li>
+<li><a href="https://www.gnu.org/licenses/gpl-3.0.html" class="external-link"><img src="https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg?style=flat" alt="License"></a></li>
+<li><a href="https://r-tmap.r-universe.dev/tmap.networks" class="external-link"><img src="https://r-tmap.r-universe.dev/badges/tmap.networks" alt="r-universe"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
