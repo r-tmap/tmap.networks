@@ -16,7 +16,7 @@
 \alias{tmapMaplibreDataPlot.tm_data_nodes}
 \title{Internal methods}
 \usage{
-tmapGridDataPlot.tm_data_network(
+\method{tmapGridDataPlot}{tm_data_network}(
   a,
   shpTM,
   dt,
@@ -32,7 +32,7 @@ tmapGridDataPlot.tm_data_network(
   ...
 )
 
-tmapGridDataPlot.tm_data_edges(
+\method{tmapGridDataPlot}{tm_data_edges}(
   a,
   shpTM,
   dt,
@@ -48,7 +48,7 @@ tmapGridDataPlot.tm_data_edges(
   ...
 )
 
-tmapGridDataPlot.tm_data_nodes(
+\method{tmapGridDataPlot}{tm_data_nodes}(
   a,
   shpTM,
   dt,
@@ -64,7 +64,7 @@ tmapGridDataPlot.tm_data_nodes(
   ...
 )
 
-tmapLeafletDataPlot.tm_data_network(
+\method{tmapLeafletDataPlot}{tm_data_network}(
   a,
   shpTM,
   dt,
@@ -80,7 +80,7 @@ tmapLeafletDataPlot.tm_data_network(
   ...
 )
 
-tmapLeafletDataPlot.tm_data_edges(
+\method{tmapLeafletDataPlot}{tm_data_edges}(
   a,
   shpTM,
   dt,
@@ -96,7 +96,7 @@ tmapLeafletDataPlot.tm_data_edges(
   ...
 )
 
-tmapLeafletDataPlot.tm_data_nodes(
+\method{tmapLeafletDataPlot}{tm_data_nodes}(
   a,
   shpTM,
   dt,
