@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   intro: intro.html
-last_built: 2025-07-04T21:24Z
+last_built: 2025-07-25T16:24Z
 urls:
   reference: https://r-tmap.github.io/tmap.networks/reference
   article: https://r-tmap.github.io/tmap.networks/articles
