@@ -1,10 +1,12 @@
 .onLoad = function(...) {
-	tmap::tmapAddLayerOptions("value.const", "size.nodes", .4)
-	tmap::tmapAddLayerOptions("value.const", "fill.nodes", "gold")
-	tmap::tmapAddLayerOptions("value.const", "col.nodes", "black")
-	tmap::tmapAddLayerOptions("value.const", "lwd.nodes", 1)
 	
-	tmap::tmapAddLayerOptions("value.const", "lwd.edges", 1.5)
-	tmap::tmapAddLayerOptions("value.const", "col.edges", "black")
-	tmap::tmapAddLayerOptions("values.var", "col.edges", list(seq = "viridis.magma", div = "tol.sunset", unord = "misc.okabe", ord = "viridis.magma", cyc = "tol.rainbow_pu_rd", biv = "pu_gn_bivs"))
+	tmap::tmapSubmitOptions(
+		options = list(
+			value.const = list(size.nodes = .4,
+							   fill.nodes = "gold",
+							   col.nodes = "black",
+							   lwd.nodes = 1,
+							   lwd.edges = 1.5,
+							   col.edges = "black"),
+			values.var = list(col.edges = list(seq = "viridis.magma", div = "tol.sunset", unord = "misc.okabe", ord = "viridis.magma", cyc = "tol.rainbow_pu_rd", biv = "pu_gn_bivs"))))
 }
