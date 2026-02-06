@@ -159,7 +159,11 @@ tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, shp_name, 
 	
 	tmap::make_by_vars(dt, tmf, smeta)
 
+
+	type_ids = list(symbols = dt_nodes$tmapID__, lines = dt_edges$tmapID__)
+	type_vars = list(symbols = names(dt_nodes), lines = names(dt_edges))
+	
 	shpTM = shapeTM(shp = sfc, tmapID = 1L:(length(sfc)), bbox = bbox)
-	structure(list(shpTM = shpTM, dt = dt, is.main = is.main, dtcols = dtcols, shpclass = "sfc", bbox = bbox, unit = unit, shp_name = shp_name, smeta = smeta), class = "tmapShape")
+	structure(list(shpTM = shpTM, dt = dt, is.main = is.main, dtcols = dtcols, shpclass = "sfc", bbox = bbox, unit = unit, shp_name = shp_name, smeta = smeta, type_ids = type_ids, type_vars = type_vars), class = "tmapShape")
 }
 

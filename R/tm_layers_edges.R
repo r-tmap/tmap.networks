@@ -6,6 +6,7 @@
 #' @param lwd,lwd.scale,lwd.legend,lwd.free Visual variable that determines the line width. See details.
 #' @param lty,lty.scale,lty.legend,lty.free Visual variable that determines the line type. See details.
 #' @param col_alpha,col_alpha.scale,col_alpha.legend,col_alpha.free Visual variable that determines the border color alpha transparency. See details.
+#' @param from, to Numbers between 0 and 1 (where `to >= from`) that indicate which part of each edge is drawn. By default full lines, so `from` and `to` are respectively 0 and 1.
 #' @param linejoin,lineend line join and line end. See \code{\link[grid:gpar]{gpar}} for details.
 #' @param plot.order Specification in which order the spatial features are drawn. See `tmap::tm_plot_order` for details.
 #' @param options options passed on to the corresponding `opt_<layer_function>` function
@@ -46,6 +47,8 @@ tm_edges = function(col = tmap::tm_const(),
 					col_alpha.scale = tmap::tm_scale(),
 					col_alpha.legend = tmap::tm_legend(),
 					col_alpha.free = NA,
+					from = 0,
+					to = 1,
 					linejoin = "round",
 					lineend = "round",
 					plot.order = tmap::tm_plot_order("lwd", reverse = TRUE, na.order = "bottom"),
@@ -74,6 +77,7 @@ tm_edges = function(col = tmap::tm_const(),
 				  hover = hover,
 				  id = id)
 
+	tm[[1]]$mapping.args = c(tm[[1]]$mapping.args, list(from = from, to = to))
 	tm[[1]]$layer = c("edges", "lines")
 	tm
 }
