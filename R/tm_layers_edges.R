@@ -29,6 +29,7 @@
 #' @param id name of the data variable that specifies the indices of the spatial
 #'   features. Only used for `"view"` mode.
 #' @export
+#' @importFrom lwgeom st_linesubstring
 #' @return a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
 #' @example ./examples/tm_network.R
 tm_edges = function(col = tmap::tm_const(),

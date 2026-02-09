@@ -21,6 +21,7 @@ Imports:
     tmap (>= 4.1),
     sf,
     sfnetworks,
+    lwgeom,
     data.table,
     igraph
 Suggests:
