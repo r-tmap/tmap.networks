@@ -13,7 +13,7 @@ tmapGridDataPlot.tm_data_network = function(a, shpTM, dt, gp, bbx, facet_row, fa
 #' @keywords internal
 #' @rdname internal_network
 tmapGridDataPlot.tm_data_edges = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, o, ...) {
-	shpTM$shp = suppressWarnings(lwgeom::st_linesubstring(shpTM$shp, from = a$from, to = a$to))
+	shpTM = sublines(shpTM, a) 
 	NextMethod()
 }
 

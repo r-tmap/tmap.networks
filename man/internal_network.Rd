@@ -124,7 +124,7 @@
   ...
 )
 
-tmapMapboxDataPlot.tm_data_network(
+\method{tmapMapboxDataPlot}{tm_data_network}(
   a,
   shpTM,
   dt,
@@ -140,7 +140,7 @@ tmapMapboxDataPlot.tm_data_network(
   ...
 )
 
-tmapMapboxDataPlot.tm_data_edges(
+\method{tmapMapboxDataPlot}{tm_data_edges}(
   a,
   shpTM,
   dt,
@@ -156,7 +156,7 @@ tmapMapboxDataPlot.tm_data_edges(
   ...
 )
 
-tmapMapboxDataPlot.tm_data_nodes(
+\method{tmapMapboxDataPlot}{tm_data_nodes}(
   a,
   shpTM,
   dt,
@@ -172,7 +172,7 @@ tmapMapboxDataPlot.tm_data_nodes(
   ...
 )
 
-tmapMaplibreDataPlot.tm_data_network(
+\method{tmapMaplibreDataPlot}{tm_data_network}(
   a,
   shpTM,
   dt,
@@ -188,7 +188,7 @@ tmapMaplibreDataPlot.tm_data_network(
   ...
 )
 
-tmapMaplibreDataPlot.tm_data_edges(
+\method{tmapMaplibreDataPlot}{tm_data_edges}(
   a,
   shpTM,
   dt,
@@ -204,7 +204,7 @@ tmapMaplibreDataPlot.tm_data_edges(
   ...
 )
 
-tmapMaplibreDataPlot.tm_data_nodes(
+\method{tmapMaplibreDataPlot}{tm_data_nodes}(
   a,
   shpTM,
   dt,

@@ -9,6 +9,7 @@ tmapMapboxDataPlot.tm_data_network = function(a, shpTM, dt, gp, bbx, facet_row, 
 #' @keywords internal
 #' @rdname internal_network
 tmapMapboxDataPlot.tm_data_edges = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, o, ...) {
+	shpTM = sublines(shpTM, a) 
 	NextMethod()
 }
 

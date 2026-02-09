@@ -28,4 +28,4 @@ Suggests:
 Config/Needs/website: bookdown, rmarkdown, r-tmap/tmap
 URL: https://github.com/r-tmap/tmap.networks, https://r-tmap.github.io/tmap.networks/
 BugReports: https://github.com/r-tmap/tmap.networks/issues
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
