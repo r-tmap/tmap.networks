@@ -112,13 +112,13 @@ tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, shp_name, 
 	
 	# for sfnetwork: the current rudimentary approach is to make one large sf object from nodes and edges, so basically a geometry collection with points and lines.
 	
+	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
 	
 	
 	if (!is.null(crs) && sf::st_crs(shp) != crs) {
 		shp = sf::st_transform(shp, crs = crs)
 	}
 	
-	shp = sfnetworks::to_spatial_explicit(shp)[[1]]
 	
 	nodes = sf::st_as_sf(shp, "nodes")
 	edges = sf::st_as_sf(shp, "edges")

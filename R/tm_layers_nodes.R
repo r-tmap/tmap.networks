@@ -87,7 +87,7 @@ tm_nodes = function(size = tm_const(),
 #' @param grob.dim vector of four values that determine how grob objects (see details) are shown in view mode. The first and second value are the width and height of the displayed icon. The third and fourth value are the width and height of the rendered png image that is used for the icon. Generally, the third and fourth value should be large enough to render a ggplot2 graphic successfully. Only needed for the view mode.
 #' @rdname tm_nodes
 #' @export
-opt_tm_nodes = function(points_only = "ifany",
+opt_tm_nodes = function(points_only = "yes",
 						point_per = "feature",
 						on_surface = FALSE,
 						icon.scale = 3,

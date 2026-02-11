@@ -37,7 +37,7 @@ tm_edges(
   options = opt_tm_edges()
 )
 
-opt_tm_edges(lines.only = "ifany", offset_start = 0, offset_end = 0)
+opt_tm_edges(lines.only = "yes", offset_start = 0, offset_end = 0)
 }
 \arguments{
 \item{col, col.scale, col.legend, col.free}{Visual variable that determines the col color. See details.}

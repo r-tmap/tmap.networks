@@ -87,7 +87,7 @@ tm_edges = function(col = tmap::tm_const(),
 #' @param lines.only should only line geometries of the shape object (defined in [tmap::tm_shape()]) be plotted, or also other geometry types (like polygons)? By default `"ifany"`, which means `TRUE` in case a geometry collection is specified.
 #' @param offset_start,offset_end Offset in coordinates (usually meters) of the start and end points.
 #' @export
-opt_tm_edges = function(lines.only = "ifany", offset_start = 0, offset_end = 0) {
+opt_tm_edges = function(lines.only = "yes", offset_start = 0, offset_end = 0) {
 	list(trans.args = list(lines.only = lines.only),
 		 mapping.args = list(offset_start = offset_start, offset_end = offset_end))
 }

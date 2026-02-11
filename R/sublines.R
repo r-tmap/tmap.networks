@@ -1,6 +1,6 @@
 sublines = function(shpTM, a) {
 	any_offset = a$offset_start != 0 || a$offset_end != 0
-	any_fromto = a$from != 0 || a$to != 0
+	any_fromto = a$from != 0 || a$to != 1
 	
 	if (any_offset) {
 		n = length(shpTM$tmapID)

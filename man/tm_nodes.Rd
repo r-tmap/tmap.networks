@@ -50,7 +50,7 @@ tm_nodes(
 )
 
 opt_tm_nodes(
-  points_only = "ifany",
+  points_only = "yes",
   point_per = "feature",
   on_surface = FALSE,
   icon.scale = 3,
