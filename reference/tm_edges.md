@@ -22,6 +22,8 @@ tm_edges(
   col_alpha.scale = tmap::tm_scale(),
   col_alpha.legend = tmap::tm_legend(),
   col_alpha.free = NA,
+  from = 0,
+  to = 1,
   linejoin = "round",
   lineend = "round",
   plot.order = tmap::tm_plot_order("lwd", reverse = TRUE, na.order = "bottom"),
@@ -35,7 +37,7 @@ tm_edges(
   options = opt_tm_edges()
 )
 
-opt_tm_edges(lines.only = "ifany")
+opt_tm_edges(lines.only = "yes", offset_start = 0, offset_end = 0)
 ```
 
 ## Arguments
@@ -56,6 +58,12 @@ opt_tm_edges(lines.only = "ifany")
 
   Visual variable that determines the border color alpha transparency.
   See details.
+
+- from, to:
+
+  Numbers between 0 and 1 (where \`to \>= from\`) that indicate which
+  part of each edge is drawn. By default full lines, so \`from\` and
+  \`to\` are respectively 0 and 1.
 
 - linejoin, lineend:
 
@@ -129,6 +137,10 @@ opt_tm_edges(lines.only = "ifany")
   polygons)? By default \`"ifany"\`, which means \`TRUE\` in case a
   geometry collection is specified.
 
+- offset_start, offset_end:
+
+  Offset in coordinates (usually meters) of the start and end points.
+
 ## Value
 
 a \[tmap::tmap-element\], supposed to be stacked after
@@ -146,10 +158,16 @@ sfn = as_sfnetwork(roxel)
 
 tm_shape(sfn) +
   tm_network()
-#> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE
 
   
 tm_shape(sfn) +
   tm_edges(col = "type", lwd = 4) +
   tm_nodes()
+
+
+
+tm_shape(sfn) +
+  tm_edges(col = "type", lwd = 4, from = 0.3, to = 0.4) +
+  tm_nodes()
+#> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE
 ```

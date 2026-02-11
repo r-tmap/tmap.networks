@@ -55,6 +55,8 @@
 <span>  col_alpha.scale <span class="op">=</span> <span class="fu">tmap</span><span class="fu">::</span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_scale.html" class="external-link">tm_scale</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  col_alpha.legend <span class="op">=</span> <span class="fu">tmap</span><span class="fu">::</span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_legend.html" class="external-link">tm_legend</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  col_alpha.free <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  from <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  to <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  linejoin <span class="op">=</span> <span class="st">"round"</span>,</span>
 <span>  lineend <span class="op">=</span> <span class="st">"round"</span>,</span>
 <span>  plot.order <span class="op">=</span> <span class="fu">tmap</span><span class="fu">::</span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_plot_order.html" class="external-link">tm_plot_order</a></span><span class="op">(</span><span class="st">"lwd"</span>, reverse <span class="op">=</span> <span class="cn">TRUE</span>, na.order <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span>,</span>
@@ -68,7 +70,7 @@
 <span>  options <span class="op">=</span> <span class="fu">opt_tm_edges</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">opt_tm_edges</span><span class="op">(</span>lines.only <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">opt_tm_edges</span><span class="op">(</span>lines.only <span class="op">=</span> <span class="st">"yes"</span>, offset_start <span class="op">=</span> <span class="fl">0</span>, offset_end <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -89,6 +91,10 @@
 
 <dt id="arg-col-alpha-col-alpha-scale-col-alpha-legend-col-alpha-free">col_alpha, col_alpha.scale, col_alpha.legend, col_alpha.free<a class="anchor" aria-label="anchor" href="#arg-col-alpha-col-alpha-scale-col-alpha-legend-col-alpha-free"></a></dt>
 <dd><p>Visual variable that determines the border color alpha transparency. See details.</p></dd>
+
+
+<dt id="arg-from-to">from, to<a class="anchor" aria-label="anchor" href="#arg-from-to"></a></dt>
+<dd><p>Numbers between 0 and 1 (where `to &gt;= from`) that indicate which part of each edge is drawn. By default full lines, so `from` and `to` are respectively 0 and 1.</p></dd>
 
 
 <dt id="arg-linejoin-lineend">linejoin, lineend<a class="anchor" aria-label="anchor" href="#arg-linejoin-lineend"></a></dt>
@@ -145,6 +151,10 @@ features. Only used for `"view"` mode.</p></dd>
 <dt id="arg-lines-only">lines.only<a class="anchor" aria-label="anchor" href="#arg-lines-only"></a></dt>
 <dd><p>should only line geometries of the shape object (defined in [tmap::tm_shape()]) be plotted, or also other geometry types (like polygons)? By default `"ifany"`, which means `TRUE` in case a geometry collection is specified.</p></dd>
 
+
+<dt id="arg-offset-start-offset-end">offset_start, offset_end<a class="anchor" aria-label="anchor" href="#arg-offset-start-offset-end"></a></dt>
+<dd><p>Offset in coordinates (usually meters) of the start and end points.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -160,13 +170,19 @@ features. Only used for `"view"` mode.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html" class="external-link">tm_shape</a></span><span class="op">(</span><span class="va">sfn</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="tm_network.html">tm_network</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE</span>
 <span class="r-plt img"><img src="tm_edges-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html" class="external-link">tm_shape</a></span><span class="op">(</span><span class="va">sfn</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">tm_edges</span><span class="op">(</span>col <span class="op">=</span> <span class="st">"type"</span>, lwd <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="tm_nodes.html">tm_nodes</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="tm_edges-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html" class="external-link">tm_shape</a></span><span class="op">(</span><span class="va">sfn</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">tm_edges</span><span class="op">(</span>col <span class="op">=</span> <span class="st">"type"</span>, lwd <span class="op">=</span> <span class="fl">4</span>, from <span class="op">=</span> <span class="fl">0.3</span>, to <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="tm_nodes.html">tm_nodes</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE</span>
+<span class="r-plt img"><img src="tm_edges-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
