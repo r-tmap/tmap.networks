@@ -85,17 +85,20 @@ tm_nodes = function(size = tm_const(),
 #' @param just not used (yet)
 #' @param icon.scale scaling number that determines how large the icons (or grobs) are in plot mode in comparison to proportional symbols (such as bubbles). For view mode, use the argument `grob.dim`
 #' @param grob.dim vector of four values that determine how grob objects (see details) are shown in view mode. The first and second value are the width and height of the displayed icon. The third and fourth value are the width and height of the rendered png image that is used for the icon. Generally, the third and fourth value should be large enough to render a ggplot2 graphic successfully. Only needed for the view mode.
+#' @param clustering in interactive modes (e.g. \code{"view"} mode), should clustering be applied at lower zoom levels? Either `FALSE` (default), `TRUE`, or a mode specific specification, e.g. for \code{"view"} mode \code{\link[leaflet:markerClusterOptions]{markerClusterOptions}}.
 #' @rdname tm_nodes
 #' @export
 opt_tm_nodes = function(points_only = "yes",
 						point_per = "feature",
 						on_surface = FALSE,
+						clustering = FALSE,
 						icon.scale = 3,
 						just = NA,
 						grob.dim = c(width=48, height=48, render.width=256, render.height=256)) {
 	list(trans.args = list(points_only = points_only, point_per = point_per, on_surface = on_surface, along_lines = FALSE),
 		 mapping.args = list(icon.scale = icon.scale,
 		 					just = just,
+		 					clustering = clustering,
 		 					grob.dim = grob.dim))
 }
 
