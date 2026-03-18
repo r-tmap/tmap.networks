@@ -4,7 +4,7 @@
 \alias{tmapGetShapeMeta1.linnet}
 \title{Implementation of tmapGetShapeMeta1 for linnet}
 \usage{
-\method{tmapGetShapeMeta1}{linnet}(shp, o)
+\method{tmapGetShapeMeta1}{linnet}(shp, layer, o)
 }
 \value{
 list used by tmap internally

@@ -7,7 +7,7 @@
 #' @return list used by tmap internally
 #' @keywords internal
 #' @export
-tmapGetShapeMeta1.sfnetwork = function(shp, o) {
+tmapGetShapeMeta1.sfnetwork = function(shp, layer, o) {
 	# get variable names
 	# (only relevant for stars:) get dimension names and values (that can serve as variables)
 	

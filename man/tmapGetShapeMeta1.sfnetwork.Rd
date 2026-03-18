@@ -4,7 +4,7 @@
 \alias{tmapGetShapeMeta1.sfnetwork}
 \title{Implementation of tmapGetShapeMeta1 for sfnetwork}
 \usage{
-\method{tmapGetShapeMeta1}{sfnetwork}(shp, o)
+\method{tmapGetShapeMeta1}{sfnetwork}(shp, layer, o)
 }
 \value{
 list used by tmap internally

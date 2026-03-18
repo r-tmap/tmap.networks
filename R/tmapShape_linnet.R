@@ -7,7 +7,7 @@
 #' @return list used by tmap internally
 #' @keywords internal
 #' @export
-tmapGetShapeMeta1.linnet = function(shp, o) {
+tmapGetShapeMeta1.linnet = function(shp, layer, o) {
 	shp2 = sfnetworks::as_sfnetwork(shp)
 	tmapGetShapeMeta1.sfnetwork(shp2, o)
 }
