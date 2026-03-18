@@ -1,14 +1,14 @@
 #' @export
 #' @keywords internal
 #' @rdname internal_network
-tmapMapboxDataPlot.tm_data_network = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, o, ...) {
+tmapMapboxDataPlot.tm_data_network = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, glid, o, ...) {
 	NextMethod()
 }
 
 #' @export
 #' @keywords internal
 #' @rdname internal_network
-tmapMapboxDataPlot.tm_data_edges = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, o, ...) {
+tmapMapboxDataPlot.tm_data_edges = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, glid, o, ...) {
 	shpTM = sublines(shpTM, a) 
 	NextMethod()
 }
@@ -16,7 +16,7 @@ tmapMapboxDataPlot.tm_data_edges = function(a, shpTM, dt, gp, bbx, facet_row, fa
 #' @export
 #' @keywords internal
 #' @rdname internal_network
-tmapMapboxDataPlot.tm_data_nodes = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, o, ...) {
+tmapMapboxDataPlot.tm_data_nodes = function(a, shpTM, dt, gp, bbx, facet_row, facet_col, facet_page, id, pane, group, glid, o, ...) {
 	NextMethod()
 }
 
