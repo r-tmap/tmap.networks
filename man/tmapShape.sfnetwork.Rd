@@ -4,7 +4,19 @@
 \alias{tmapShape.sfnetwork}
 \title{Implementation of tmapShape for sfnetwork}
 \usage{
-\method{tmapShape}{sfnetwork}(shp, is.main, crs, bbox, unit, filter, shp_name, smeta, o, tmf)
+\method{tmapShape}{sfnetwork}(
+  shp,
+  is.main,
+  crs,
+  bbox,
+  unit,
+  filter,
+  layer,
+  shp_name,
+  smeta,
+  o,
+  tmf
+)
 }
 \value{
 list used by tmap internally

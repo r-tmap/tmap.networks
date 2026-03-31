@@ -95,7 +95,7 @@ tmapGetShapeMeta2.sfnetwork = function(shp, smeta, o) {
 #' @keywords internal
 #' @return list used by tmap internally
 #' @export
-tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, shp_name, smeta, o, tmf) {
+tmapShape.sfnetwork = function(shp, is.main, crs, bbox, unit, filter, layer, shp_name, smeta, o, tmf) {
 	tmapID__ = NULL
 
 	# the main method to process spatial objects
