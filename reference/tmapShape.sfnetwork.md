@@ -6,7 +6,19 @@ Implementation of tmapShape for sfnetwork
 
 ``` r
 # S3 method for class 'sfnetwork'
-tmapShape(shp, is.main, crs, bbox, unit, filter, shp_name, smeta, o, tmf)
+tmapShape(
+  shp,
+  is.main,
+  crs,
+  bbox,
+  unit,
+  filter,
+  layer,
+  shp_name,
+  smeta,
+  o,
+  tmf
+)
 ```
 
 ## Value

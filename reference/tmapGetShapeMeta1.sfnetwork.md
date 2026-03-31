@@ -6,7 +6,7 @@ Implementation of tmapGetShapeMeta1 for sfnetwork
 
 ``` r
 # S3 method for class 'sfnetwork'
-tmapGetShapeMeta1(shp, o)
+tmapGetShapeMeta1(shp, layer, o)
 ```
 
 ## Value

@@ -6,7 +6,7 @@ Implementation of tmapGetShapeMeta1 for linnet
 
 ``` r
 # S3 method for class 'linnet'
-tmapGetShapeMeta1(shp, o)
+tmapGetShapeMeta1(shp, layer, o)
 ```
 
 ## Value

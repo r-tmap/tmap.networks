@@ -18,6 +18,7 @@ tmapGridDataPlot(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -35,6 +36,7 @@ tmapGridDataPlot(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -52,6 +54,7 @@ tmapGridDataPlot(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -73,6 +76,7 @@ tmapLeafletDataPlot(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -94,6 +98,7 @@ tmapLeafletDataPlot(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -115,6 +120,7 @@ tmapLeafletDataPlot(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -131,6 +137,7 @@ tmapMapboxDataPlot.tm_data_network(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -147,6 +154,7 @@ tmapMapboxDataPlot.tm_data_edges(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -163,6 +171,7 @@ tmapMapboxDataPlot.tm_data_nodes(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -179,6 +188,7 @@ tmapMaplibreDataPlot.tm_data_network(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -195,6 +205,7 @@ tmapMaplibreDataPlot.tm_data_edges(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
@@ -211,6 +222,7 @@ tmapMaplibreDataPlot.tm_data_nodes(
   id,
   pane,
   group,
+  glid,
   o,
   ...
 )
