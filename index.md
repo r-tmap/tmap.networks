@@ -11,12 +11,14 @@ features network specific layer functions
 Installation of **tmap.networks** is straightforward:
 
 ``` r
+
 install.packages("tmap.networks")
 ```
 
 ## Development version
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("r-tmap/tmap.networks")
 
