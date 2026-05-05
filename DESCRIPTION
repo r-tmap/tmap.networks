@@ -13,12 +13,12 @@ Authors@R: c(
 	person("Robin", "Lovelace", email = "rob00x@gmail.com", role = "ctb")
 	)
 Description: Provides functions for visualizing networks with 'tmap'. It supports 'sfnetworks' objects natively but is not limited to them. Useful for adding network layers such as edges and nodes to 'tmap' maps. More features may be added in future versions.
-Version: 0.1
+Version: 0.2
 Encoding: UTF-8
 Depends:
     R (>= 4.0),
 Imports:
-    tmap (>= 4.1),
+    tmap (>= 4.3),
     sf,
     sfnetworks,
     lwgeom,

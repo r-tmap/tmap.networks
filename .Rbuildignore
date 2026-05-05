@@ -20,3 +20,5 @@ man/figures/shiny_plot.jpg
 man/figures/shiny_view.jpg
 ^CRAN-SUBMISSION$
 sandbox
+^\.positai$
+^\.claude$
