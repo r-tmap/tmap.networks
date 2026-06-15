@@ -13,10 +13,12 @@ tm_network()
 
 ## Value
 
-a \[tmap::tmap-element\], supposed to be stacked after
-\[tmap::tm_shape()\] using the \`+\` operator. The
-\`opt\_\<layer_function\>\` function returns a list that should be
-passed on to the \`options\` argument.
+a
+[tmap::tmap-element](https://r-tmap.github.io/tmap/reference/tmap-element.html),
+supposed to be stacked after
+[`tmap::tm_shape()`](https://r-tmap.github.io/tmap/reference/tm_shape.html)
+using the `+` operator. The `opt_<layer_function>` function returns a
+list that should be passed on to the `options` argument.
 
 ## Examples
 

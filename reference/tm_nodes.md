@@ -42,11 +42,13 @@ tm_nodes(
   zindex = NA,
   group = NA,
   group.control = "check",
+  popup = tm_popup(),
   popup.vars = NA,
   popup.format = list(),
   hover = NA,
   id = "",
-  options = opt_tm_nodes()
+  options = opt_tm_nodes(),
+  ...
 )
 
 opt_tm_nodes(
@@ -99,7 +101,8 @@ opt_tm_nodes(
 - plot.order:
 
   Specification in which order the spatial features are drawn. See
-  \`tmap::tm_plot_order\` for details.
+  [`tmap::tm_plot_order`](https://r-tmap.github.io/tmap/reference/tm_plot_order.html)
+  for details.
 
 - zindex:
 
@@ -110,57 +113,74 @@ opt_tm_nodes(
 - group:
 
   Name of the group to which this layer belongs. This is only relevant
-  in view mode, where layer groups can be switched (see
-  \`group.control\`)
+  in view mode, where layer groups can be switched (see `group.control`)
 
 - group.control:
 
   In view mode, the group control determines how layer groups can be
-  switched on and off. Options: \`"radio"\` for radio buttons (meaning
-  only one group can be shown), \`"check"\` for check boxes (so multiple
-  groups can be shown), and \`"none"\` for no control (the group cannot
-  be (de)selected).
+  switched on and off. Options: `"radio"` for radio buttons (meaning
+  only one group can be shown), `"check"` for check boxes (so multiple
+  groups can be shown), and `"none"` for no control (the group cannot be
+  (de)selected).
+
+- popup:
+
+  popup specification for `"view"` mode, the output of
+  [`tmap::tm_popup()`](https://r-tmap.github.io/tmap/reference/tm_popup.html).
+  It determines the data variables shown in the popup table, the popup
+  title, and the popup layout. This replaces the deprecated arguments
+  `popup.vars` and `popup.format`.
 
 - popup.vars:
 
-  names of data variables that are shown in the popups in \`"view"\`
-  mode. Set popup.vars to \`TRUE\` to show all variables in the shape
-  object. Set popup.vars to \`FALSE\` to disable popups. Set
-  \`popup.vars\` to a character vector of variable names to those those
-  variables in the popups. The default (\`NA\`) depends on whether
-  visual variables (e.g.\`fill\`) are used. If so, only those are shown.
-  If not all variables in the shape object are shown.
+  (Deprecated.) Use `popup` with
+  [`tmap::tm_popup()`](https://r-tmap.github.io/tmap/reference/tm_popup.html)
+  instead (via its `vars` argument). Names of data variables that are
+  shown in the popups in `"view"` mode. Set `popup.vars` to `TRUE` to
+  show all variables in the shape object. Set `popup.vars` to `FALSE` to
+  disable popups. Set `popup.vars` to a character vector of variable
+  names to show those variables in the popups. The default (`NA`)
+  depends on whether visual variables (e.g. `col`) are used. If so, only
+  those are shown. If not, all variables in the shape object are shown.
 
 - popup.format:
 
-  list of formatting options for the popup values. See the argument
-  \`legend.format\` for options. Only applicable for numeric data
-  variables. If one list of formatting options is provided, it is
-  applied to all numeric variables of \`popup.vars\`. Also, a (named)
-  list of lists can be provided. In that case, each list of formatting
-  options is applied to the named variable.
+  (Deprecated.) Use `popup` with
+  [`tmap::tm_popup()`](https://r-tmap.github.io/tmap/reference/tm_popup.html)
+  instead (via its `format` argument). List of formatting options for
+  the popup values. See the argument `legend.format` for options. Only
+  applicable for numeric data variables. If one list of formatting
+  options is provided, it is applied to all numeric variables of
+  `popup.vars`. Also, a (named) list of lists can be provided. In that
+  case, each list of formatting options is applied to the named
+  variable.
 
 - hover:
 
   name of the data variable that specifies the hover labels (view mode
-  only). Set to \`FALSE\` to disable hover labels. By default \`FALSE\`,
-  unless \`id\` is specified. In that case, it is set to \`id\`,
+  only). Set to `FALSE` to disable hover labels. By default `FALSE`,
+  unless `id` is specified. In that case, it is set to `id`,
 
 - id:
 
   name of the data variable that specifies the indices of the spatial
-  features. Only used for \`"view"\` mode.
+  features. Only used for `"view"` mode.
 
 - options:
 
-  options passed on to the corresponding \`opt\_\<layer_function\>\`
-  function
+  options passed on to the corresponding `opt_<layer_function>` function
+
+- ...:
+
+  passed on to
+  [`tmap::tm_symbols()`](https://r-tmap.github.io/tmap/reference/tm_symbols.html).
 
 - points_only:
 
   should only point geometries of the shape object (defined in
-  \[tmap::tm_shape()\]) be plotted? By default \`"ifany"\`, which means
-  \`TRUE\` in case a geometry collection is specified.
+  [`tmap::tm_shape()`](https://r-tmap.github.io/tmap/reference/tm_shape.html))
+  be plotted? By default `"ifany"`, which means `TRUE` in case a
+  geometry collection is specified.
 
 - point_per:
 
@@ -174,22 +194,22 @@ opt_tm_nodes(
 - on_surface:
 
   In case of polygons, centroids are computed. Should the points be on
-  the surface? If \`TRUE\`, which is slower than the default \`FALSE\`,
+  the surface? If `TRUE`, which is slower than the default `FALSE`,
   centroids outside the surface are replaced with points computed with
-  \[sf::st_point_on_surface()\].
+  [`sf::st_point_on_surface()`](https://r-spatial.github.io/sf/reference/geos_unary.html).
 
 - clustering:
 
   in interactive modes (e.g. `"view"` mode), should clustering be
-  applied at lower zoom levels? Either \`FALSE\` (default), \`TRUE\`, or
-  a mode specific specification, e.g. for `"view"` mode
+  applied at lower zoom levels? Either `FALSE` (default), `TRUE`, or a
+  mode specific specification, e.g. for `"view"` mode
   [`markerClusterOptions`](https://rstudio.github.io/leaflet/reference/map-options.html).
 
 - icon.scale:
 
   scaling number that determines how large the icons (or grobs) are in
   plot mode in comparison to proportional symbols (such as bubbles). For
-  view mode, use the argument \`grob.dim\`
+  view mode, use the argument `grob.dim`
 
 - just:
 
@@ -206,10 +226,12 @@ opt_tm_nodes(
 
 ## Value
 
-a \[tmap::tmap-element\], supposed to be stacked after
-\[tmap::tm_shape()\] using the \`+\` operator. The
-\`opt\_\<layer_function\>\` function returns a list that should be
-passed on to the \`options\` argument.
+a
+[tmap::tmap-element](https://r-tmap.github.io/tmap/reference/tmap-element.html),
+supposed to be stacked after
+[`tmap::tm_shape()`](https://r-tmap.github.io/tmap/reference/tm_shape.html)
+using the `+` operator. The `opt_<layer_function>` function returns a
+list that should be passed on to the `options` argument.
 
 ## Examples
 
