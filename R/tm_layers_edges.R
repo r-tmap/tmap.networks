@@ -13,21 +13,29 @@
 #' @param zindex Map layers are drawn on top of each other. The \code{zindex} numbers (one for each map layer) determines the stacking order. By default the map layers are drawn in the order they are called.
 #' @param group Name of the group to which this layer belongs. This is only relevant in view mode, where layer groups can be switched (see `group.control`)
 #' @param group.control In view mode, the group control determines how layer groups can be switched on and off. Options: `"radio"` for radio buttons (meaning only one group can be shown), `"check"` for check boxes (so multiple groups can be shown), and `"none"` for no control (the group cannot be (de)selected).
-#' @param popup.vars names of data variables that are shown in the popups
-#'   in `"view"` mode. Set popup.vars to `TRUE` to show all variables in the
-#'   shape object. Set popup.vars to `FALSE` to disable popups. Set `popup.vars`
-#'   to a character vector of variable names to those those variables in the popups.
-#'   The default (`NA`) depends on whether visual variables (e.g.`fill`) are used.
-#'   If so, only those are shown. If not all variables in the shape object are shown.
-#' @param popup.format list of formatting options for the popup values.
-#'   See the argument `legend.format` for options. Only applicable for
-#'   numeric data variables. If one list of formatting options is provided,
-#'   it is applied to all numeric variables of `popup.vars`. Also, a (named)
-#'   list of lists can be provided. In that case, each list of formatting options
-#'   is applied to the named variable.
+#' @param popup popup specification for `"view"` mode, the output of [tmap::tm_popup()].
+#'   It determines the data variables shown in the popup table, the popup title,
+#'   and the popup layout. This replaces the deprecated arguments `popup.vars`
+#'   and `popup.format`.
+#' @param popup.vars (Deprecated.) Use `popup` with [tmap::tm_popup()] instead
+#'   (via its `vars` argument). Names of data variables that are shown in the
+#'   popups in `"view"` mode. Set `popup.vars` to `TRUE` to show all variables in
+#'   the shape object. Set `popup.vars` to `FALSE` to disable popups. Set
+#'   `popup.vars` to a character vector of variable names to show those variables
+#'   in the popups. The default (`NA`) depends on whether visual variables
+#'   (e.g. `col`) are used. If so, only those are shown. If not, all variables in
+#'   the shape object are shown.
+#' @param popup.format (Deprecated.) Use `popup` with [tmap::tm_popup()] instead
+#'   (via its `format` argument). List of formatting options for the popup values.
+#'   See the argument `legend.format` for options. Only applicable for numeric
+#'   data variables. If one list of formatting options is provided, it is applied
+#'   to all numeric variables of `popup.vars`. Also, a (named) list of lists can
+#'   be provided. In that case, each list of formatting options is applied to the
+#'   named variable.
 #' @param hover name of the data variable that specifies the hover labels (view mode only). Set to `FALSE` to disable hover labels. By default `FALSE`, unless `id` is specified. In that case, it is set to `id`,
 #' @param id name of the data variable that specifies the indices of the spatial
 #'   features. Only used for `"view"` mode.
+#' @param ... passed on to [tmap::tm_lines()].
 #' @export
 #' @importFrom lwgeom st_linesubstring
 #' @return a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
@@ -56,27 +64,32 @@ tm_edges = function(col = tmap::tm_const(),
 					zindex = NA,
 					group = NA,
 					group.control = "check",
+					popup = tmap::tm_popup(),
 					popup.vars = NA,
 					popup.format = list(),
 					hover = NA,
 					id = "",
-					options = opt_tm_edges()) {
-	
-	tm = tm_lines(col = col, col.scale = col.scale, col.legend = col.legend, col.free = col.free,
-				  lwd = lwd, lwd.scale = lwd.scale, lwd.legend = lwd.legend, lwd.free = lwd.free,
-				  lty = lty, lty.scale = lty.scale, lty.legend = lty.legend, lty.free = lty.free,
-				  col_alpha = col_alpha, col_alpha.scale = col_alpha.scale, col_alpha.legend = col_alpha.legend, col_alpha.free = col_alpha.free,
-				  linejoin = linejoin,
-				  lineend = lineend,
-				  plot.order = plot.order,
-				  options = options,
-				  zindex = zindex,
-				  group = group,
-				  group.control = group.control,
-				  popup.vars = popup.vars,
-				  popup.format = popup.format,
-				  hover = hover,
-				  id = id)
+					options = opt_tm_edges(),
+					...) {
+
+	# Delegate to tm_lines, which resolves the popup specification. Only the
+	# popup arguments the caller actually supplied are forwarded, so tm_lines'
+	# deprecation detection (popup.vars/popup.format are deprecated in favour of
+	# popup = tm_popup(...)) and its "both supplied" check stay correct.
+	# `called_from` makes any deprecation message name tm_edges(). `from`/`to`
+	# are tm_edges-specific; strip them before delegating and re-attach to
+	# mapping.args afterwards.
+	args = c(as.list(environment()), list(...))
+	called = names(match.call())[-1]
+	args$called_from = "tm_edges"
+	args$from = NULL
+	args$to = NULL
+
+	for (a in c("popup", "popup.vars", "popup.format")) {
+		if (!(a %in% called)) args[[a]] = NULL
+	}
+
+	tm = do.call(tm_lines, args)
 
 	tm[[1]]$mapping.args = c(tm[[1]]$mapping.args, list(from = from, to = to))
 	tm[[1]]$layer = c("edges", "lines")

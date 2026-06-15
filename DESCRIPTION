@@ -13,7 +13,7 @@ Authors@R: c(
 	person("Robin", "Lovelace", email = "rob00x@gmail.com", role = "ctb")
 	)
 Description: Provides functions for visualizing networks with 'tmap'. It supports 'sfnetworks' objects natively but is not limited to them. Useful for adding network layers such as edges and nodes to 'tmap' maps. More features may be added in future versions.
-Version: 0.2
+Version: 0.2-1
 Encoding: UTF-8
 Depends:
     R (>= 4.0),
@@ -29,4 +29,5 @@ Suggests:
 Config/Needs/website: bookdown, rmarkdown, r-tmap/tmap
 URL: https://github.com/r-tmap/tmap.networks, https://r-tmap.github.io/tmap.networks/
 BugReports: https://github.com/r-tmap/tmap.networks/issues
-RoxygenNote: 7.3.3
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0

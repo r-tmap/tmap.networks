@@ -10,6 +10,7 @@
 #' @param lty,lty.scale,lty.legend,lty.free Visual variable that determines the line type. See details.
 #' @param fill_alpha,fill_alpha.scale,fill_alpha.legend,fill_alpha.free Visual variable that determines the fill color alpha transparency See details.
 #' @param col_alpha,col_alpha.scale,col_alpha.legend,col_alpha.free Visual variable that determines the border color alpha transparency. See details.
+#' @param ... passed on to [tmap::tm_symbols()].
 #' @inheritParams tm_edges
 #' @export
 #' @return a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
@@ -50,31 +51,29 @@ tm_nodes = function(size = tm_const(),
 					zindex = NA,
 					group = NA,
 					group.control = "check",
+					popup = tm_popup(),
 					popup.vars = NA,
 					popup.format = list(),
 					hover = NA,
 					id = "",
-					options = opt_tm_nodes()) {
-	
-	tm = tm_symbols(size = size, size.scale = size.scale, size.legend = size.legend, size.free = size.free,
-				  fill = fill, fill.scale = fill.scale, fill.legend = fill.legend, fill.free = fill.free,
-				  col = col, col.scale = col.scale, col.legend = col.legend, col.free = col.free,
-				  shape = shape, shape.scale = shape.scale, shape.legend = shape.legend, shape.free = shape.free,
-				  lwd = lwd, lwd.scale = lwd.scale, lwd.legend = lwd.legend, lwd.free = lwd.free,
-				  lty = lty, lty.scale = lty.scale, lty.legend = lty.legend, lty.free = lty.free,
-				  fill_alpha = fill_alpha, fill_alpha.scale = fill_alpha.scale, fill_alpha.legend = fill_alpha.legend, fill_alpha.free = fill_alpha.free,
-				  col_alpha = col_alpha, col_alpha.scale = col_alpha.scale, col_alpha.legend = col_alpha.legend, col_alpha.free = col_alpha.free,
-				  plot.order = plot.order,
-				  options = options,
-				  zindex = zindex,
-				  group = group,
-				  group.control = group.control,
-					popup.vars = popup.vars,
-					popup.format = popup.format,
-					hover = hover,
-					id = id
-					)
-	
+					options = opt_tm_nodes(),
+					...) {
+
+	# Delegate to tm_symbols, which resolves the popup specification. Only the
+	# popup arguments the caller actually supplied are forwarded, so tm_symbols'
+	# deprecation detection (popup.vars/popup.format are deprecated in favour of
+	# popup = tm_popup(...)) and its "both supplied" check stay correct.
+	# `called_from` makes any deprecation message name tm_nodes().
+	args = c(as.list(environment()), list(...))
+	called = names(match.call())[-1]
+	args$called_from = "tm_nodes"
+
+	for (a in c("popup", "popup.vars", "popup.format")) {
+		if (!(a %in% called)) args[[a]] = NULL
+	}
+
+	tm = do.call(tm_symbols, args)
+
 	tm[[1]]$layer = c("nodes", "symbols")
 	tm
 }
@@ -101,4 +100,3 @@ opt_tm_nodes = function(points_only = "yes",
 		 					clustering = clustering,
 		 					grob.dim = grob.dim))
 }
-

@@ -7,7 +7,7 @@
 tm_network()
 }
 \value{
-a [tmap::tmap-element], supposed to be stacked after [tmap::tm_shape()] using the `+` operator. The `opt_<layer_function>` function returns a list that should be passed on to the `options` argument.
+a \link[tmap:tmap-element]{tmap::tmap-element}, supposed to be stacked after \code{\link[tmap:tm_shape]{tmap::tm_shape()}} using the \code{+} operator. The \verb{opt_<layer_function>} function returns a list that should be passed on to the \code{options} argument.
 }
 \description{
 Map layer that draws a network. For more (total) flexibility, please use \code{\link{tm_edges}} and \code{\link{tm_nodes}}.

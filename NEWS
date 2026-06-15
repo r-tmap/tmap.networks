@@ -1,3 +1,6 @@
+version 0.2-1
+- updated to tmap 4.4
+
 version 0.2
 - support for spatstat.linnet objects
 - internals updated to tmap 4.3
