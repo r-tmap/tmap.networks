@@ -49,3 +49,9 @@ po/*~
 rsconnect/
 docs
 .positai
+
+# local files (not to be committed)
+**/.DS_Store
+CRAN-SUBMISSION
+cran-comments.md
+sandbox/
